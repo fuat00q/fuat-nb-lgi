@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuat | Profesyonel Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #0b1120;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #1e293b;
+            padding: 15px 25px;
+            border-radius: 50px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .admin-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 30px;
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            overflow: hidden;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-info .title {
+            color: #94a3b8;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .rank {
+            background: #fbbf24;
+            color: black;
+            padding: 4px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            background: #1e293b;
+            padding: 15px 25px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+        }
+
+        .quote {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            font-size: 60px;
+            color: #3b82f6;
+            opacity: 0.3;
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .quote-author {
+            text-align: right;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .about {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about h2 {
+            color: #3b82f6;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .skills {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .skills h2 {
+            color: #3b82f6;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .skill-level {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #334155;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #3b82f6;
+            border-radius: 20px;
+        }
+
+        .skill-xp {
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: right;
+        }
+
+        .social {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .social h2 {
+            color: #3b82f6;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .instagram { background: linear-gradient(45deg, #f09433, #d62976, #962fbf); }
+        .telegram { background: #0088cc; }
+        .whatsapp { background: #25D366; }
+
+        .chat {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+
+        .chat h2 {
+            color: #3b82f6;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .online {
+            background: #22c55e;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+        }
+
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #0f172a;
+            border-radius: 20px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #1e293b;
+            border-radius: 15px;
+        }
+
+        .message-name {
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            background: #0f172a;
+            border: none;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .chat-input button {
+            width: 50px;
+            height: 50px;
+            background: #3b82f6;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 30px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h2 {
+            color: #3b82f6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #334155;
+            border: none;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 12px;
+            background: #3b82f6;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 28px;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .admin-panel.show {
+            display: block;
+        }
+
+        .admin-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 40px;
+            padding: 30px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 15px;
+        }
+
+        .admin-header h2 {
+            color: #3b82f6;
+            font-size: 28px;
+        }
+
+        .close-admin {
+            background: none;
+            border: none;
+            color: #ef4444;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        .admin-section {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .admin-section h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #334155;
+            border: none;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .admin-select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #334155;
+            border: none;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .admin-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .admin-btn-warning {
+            background: #fbbf24;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">FUAT</div>
+            <button class="admin-btn" onclick="openLoginModal()">Admin</button>
+        </div>
+
+        <div class="profile">
+            <div class="profile-img" id="profileImageContainer">
+                <img id="profileImage" src="" alt="Fuat" style="display: none;">
+                <span id="profileEmoji">👤</span>
+            </div>
+            <div class="profile-info">
+                <h1 id="siteName">Fuat</h1>
+                <div class="title" id="siteSubtitle">Full Stack Developer</div>
+                <span class="rank" id="rank">Mareşal</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="iftarTime">18:42</div>
+                <div class="stat-label">ANKARA İFTAR</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="visitCount">0</div>
+                <div class="stat-label">ZİYARETÇİ</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="currentDate">04.03.2026</div>
+                <div class="stat-label">TARİH</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="currentTime">00:00:00</div>
+                <div class="stat-label">SAAT</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="messageCount">1</div>
+                <div class="stat-label">MESAJ</div>
+            </div>
+        </div>
+
+        <div class="quote">
+            <div class="quote-text" id="quoteText">Bilgi sahibi olmadan fikir sahibi olunmaz.</div>
+            <div class="quote-author" id="quoteAuthor">Cemil Meriç</div>
+        </div>
+
+        <div class="about">
+            <h2>📋 Hakkımda</h2>
+            <p id="about">Merhaba! Ben Fuat, 5+ yıllık deneyimli full stack developer. Modern web teknolojileri ile projeler geliştiriyorum.</p>
+        </div>
+
+        <div class="skills">
+            <h2>⚡ Yetenekler</h2>
+            <div id="skillsContainer"></div>
+        </div>
+
+        <div class="social">
+            <h2>🌐 Sosyal Medya</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/fuat_ztr?igsh=cnZhZGxzZHlqM2cw" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-link telegram"><i class="fab fa-telegram"></i></a>
+                <a href="#" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="chat">
+            <h2>💬 Sohbet</h2>
+            <div class="chat-header">
+                <span class="online">1 online</span>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Mesajınız...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+            <h2>Admin Girişi</h2>
+            <input type="text" id="username" placeholder="Kullanıcı Adı">
+            <input type="password" id="password" placeholder="Şifre">
+            <button onclick="login()">Giriş Yap</button>
+        </div>
+    </div>
+
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h2><i class="fas fa-cog"></i> Admin Paneli</h2>
+                <button class="close-admin" onclick="closeAdminPanel()">&times;</button>
+            </div>
+
+            <div class="admin-section">
+                <h3><i class="fas fa-star"></i> TSK Rütbe Seçimi</h3>
+                <select id="rankSelect" class="admin-select">
+                    <option value="Er">Er</option>
+                    <option value="Erbaş">Erbaş</option>
+                    <option value="Astsubay">Astsubay</option>
+                    <option value="Subay">Subay</option>
+                    <option value="Üsteğmen">Üsteğmen</option>
+                    <option value="Yüzbaşı">Yüzbaşı</option>
+                    <option value="Binbaşı">Binbaşı</option>
+                    <option value="Yarbay">Yarbay</option>
+                    <option value="Albay">Albay</option>
+                    <option value="Tuğgeneral">Tuğgeneral</option>
+                    <option value="Tümgeneral">Tümgeneral</option>
+                    <option value="Korgeneral">Korgeneral</option>
+                    <option value="Orgeneral">Orgeneral</option>
+                    <option value="Mareşal">Mareşal</option>
+                </select>
+            </div>
+
+            <div class="admin-section">
+                <h3><i class="fas fa-user"></i> Profil Düzenle</h3>
+                
+                <!-- FOTOĞRAF YÜKLEME BÖLÜMÜ -->
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <img id="previewImage" src="" alt="Profil Fotoğrafı" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; background: #334155; display: none;">
+                    <div style="margin-top: 10px;">
+                        <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                        <button onclick="document.getElementById('photoUpload').click()" class="admin-btn" style="margin-right: 5px;">📸 Fotoğraf Seç</button>
+                        <button onclick="removePhoto()" class="admin-btn" style="background: #ef4444;">🗑️ Kaldır</button>
+                    </div>
+                </div>
+                
+                <input type="text" id="editName" class="admin-input" placeholder="İsim" value="Fuat">
+                <input type="text" id="editSubtitle" class="admin-input" placeholder="Ünvan" value="Full Stack Developer">
+                <textarea id="editAbout" class="admin-input" rows="3" placeholder="Hakkımda">Merhaba! Ben Fuat, 5+ yıllık deneyimli full stack developer. Modern web teknolojileri ile projeler geliştiriyorum.</textarea>
+                <input type="text" id="editQuoteText" class="admin-input" placeholder="Günün Sözü" value="Bilgi sahibi olmadan fikir sahibi olunmaz.">
+                <input type="text" id="editQuoteAuthor" class="admin-input" placeholder="Söz Yazarı" value="Cemil Meriç">
+            </div>
+
+            <div class="admin-section">
+                <h3><i class="fas fa-link"></i> Sosyal Medya</h3>
+                <input type="text" id="editInstagram" class="admin-input" placeholder="Instagram" value="https://www.instagram.com/fuat_ztr?igsh=cnZhZGxzZHlqM2cw">
+                <input type="text" id="editTelegram" class="admin-input" placeholder="Telegram">
+                <input type="text" id="editWhatsapp" class="admin-input" placeholder="WhatsApp">
+            </div>
+
+            <button class="admin-btn admin-btn-warning" onclick="saveSettings()" style="width: 100%;">Değişiklikleri Kaydet</button>
+        </div>
+    </div>
+
+    <script>
+        // ========== VERİLER ==========
+        let skills = [
+            { name: "JavaScript", level: 90 },
+            { name: "Node.js", level: 80 },
+            { name: "Python", level: 75 },
+            { name: "HTML/CSS", level: 95 }
+        ];
+
+        let messages = [
+            { name: "Fuat", text: "Hoş geldiniz! 👋" }
+        ];
+
+        let settings = {
+            name: "Fuat",
+            subtitle: "Full Stack Developer",
+            about: "Merhaba! Ben Fuat, 5+ yıllık deneyimli full stack developer. Modern web teknolojileri ile projeler geliştiriyorum.",
+            rank: "Mareşal",
+            quoteText: "Bilgi sahibi olmadan fikir sahibi olunmaz.",
+            quoteAuthor: "Cemil Meriç"
+        };
+
+        let social = {
+            instagram: "https://www.instagram.com/fuat_ztr?igsh=cnZhZGxzZHlqM2cw",
+            telegram: "#",
+            whatsapp: "#"
+        };
+
+        // ========== SAYFA YÜKLENİNCE ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            updateDate();
+            updateVisitCount();
+            renderSkills();
+            renderMessages();
+            updateUI();
+            
+            setInterval(updateTime, 1000);
+            setInterval(updateDate, 1000);
+            
+            // Kayıtlı fotoğrafı yükle
+            loadSavedPhoto();
+        });
+
+        // ========== FOTOĞRAF FONKSİYONLARI ==========
+        function loadSavedPhoto() {
+            const savedPhoto = localStorage.getItem('profilePhoto');
+            if (savedPhoto && savedPhoto !== '') {
+                document.getElementById('profileImage').src = savedPhoto;
+                document.getElementById('profileImage').style.display = 'block';
+                document.getElementById('profileEmoji').style.display = 'none';
+                
+                // Admin panelinde de göster
+                const previewImage = document.getElementById('previewImage');
+                if (previewImage) {
+                    previewImage.src = savedPhoto;
+                    previewImage.style.display = 'block';
+                }
+            }
+        }
+
+        // Fotoğraf yükleme
+        document.getElementById('photoUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageData = e.target.result;
+                    
+                    // Önizleme göster
+                    document.getElementById('previewImage').src = imageData;
+                    document.getElementById('previewImage').style.display = 'block';
+                    
+                    // Profilde hemen göster
+                    document.getElementById('profileImage').src = imageData;
+                    document.getElementById('profileImage').style.display = 'block';
+                    document.getElementById('profileEmoji').style.display = 'none';
+                    
+                    // Direkt kaydet (opsiyonel, isteğe bağlı)
+                    // localStorage.setItem('profilePhoto', imageData);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function removePhoto() {
+            // Önizlemeyi temizle
+            document.getElementById('previewImage').src = '';
+            document.getElementById('previewImage').style.display = 'none';
+            
+            // Profilde emojiyi göster
+            document.getElementById('profileImage').style.display = 'none';
+            document.getElementById('profileEmoji').style.display = 'flex';
+            
+            // LocalStorage'dan sil
+            localStorage.removeItem('profilePhoto');
+            
+            // File input'u temizle
+            document.getElementById('photoUpload').value = '';
+        }
+
+        // ========== ZAMAN FONKSİYONLARI ==========
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').innerText = now.toLocaleTimeString('tr-TR');
+        }
+
+        function updateDate() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            document.getElementById('currentDate').innerText = `${day}.${month}.${year}`;
+        }
+
+        function updateVisitCount() {
+            let visits = localStorage.getItem('visits') || 0;
+            visits = parseInt(visits) + 1;
+            localStorage.setItem('visits', visits);
+            document.getElementById('visitCount').innerText = visits;
+        }
+
+        // ========== YETENEKLER ==========
+        function renderSkills() {
+            let html = '';
+            skills.forEach(skill => {
+                const xp = skill.level * 10;
+                const nextXp = (skill.level + 1) * 10;
+                html += `
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">${skill.name}</span>
+                            <span class="skill-level">Seviye ${skill.level}</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: ${skill.level}%"></div>
+                        </div>
+                        <div class="skill-xp">${xp} XP / ${nextXp} XP</div>
+                    </div>
+                `;
+            });
+            document.getElementById('skillsContainer').innerHTML = html;
+        }
+
+        // ========== CHAT ==========
+        function renderMessages() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+            
+            messages.forEach(msg => {
+                chatMessages.innerHTML += `
+                    <div class="message">
+                        <div class="message-name">${msg.name}</div>
+                        <div>${msg.text}</div>
+                    </div>
+                `;
+            });
+            document.getElementById('messageCount').innerText = messages.length;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const text = input.value.trim();
+            
+            if (text === '') return;
+            
+            messages.push({
+                name: "Ziyaretçi",
+                text: text
+            });
+            
+            renderMessages();
+            input.value = '';
+        }
+
+        // ========== ARAYÜZ GÜNCELLE ==========
+        function updateUI() {
+            document.getElementById('siteName').innerText = settings.name;
+            document.getElementById('siteSubtitle').innerText = settings.subtitle;
+            document.getElementById('about').innerText = settings.about;
+            document.getElementById('rank').innerText = settings.rank;
+            document.getElementById('quoteText').innerText = settings.quoteText;
+            document.getElementById('quoteAuthor').innerText = settings.quoteAuthor;
+            
+            document.getElementById('instagramLink').href = social.instagram;
+            document.getElementById('telegramLink').href = social.telegram;
+            document.getElementById('whatsappLink').href = social.whatsapp;
+        }
+
+        // ========== LOGİN FONKSİYONLARI ==========
+        const ADMIN_USERNAME = "ögle";
+        const ADMIN_PASSWORD = "admin0101";
+
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('show');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.remove('show');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) { 
+                closeLoginModal();
+                openAdminPanel();
+            } else {
+                alert('❌ Hatalı giriş!');
+            }
+        }
+
+        // ========== ADMIN PANELİ ==========
+        function openAdminPanel() {
+            document.getElementById('editName').value = settings.name;
+            document.getElementById('editSubtitle').value = settings.subtitle;
+            document.getElementById('editAbout').value = settings.about;
+            document.getElementById('rankSelect').value = settings.rank;
+            document.getElementById('editQuoteText').value = settings.quoteText;
+            document.getElementById('editQuoteAuthor').value = settings.quoteAuthor;
+            document.getElementById('editInstagram').value = social.instagram;
+            document.getElementById('editTelegram').value = social.telegram;
+            document.getElementById('editWhatsapp').value = social.whatsapp;
+            
+            // Admin panelinde fotoğrafı göster
+            const savedPhoto = localStorage.getItem('profilePhoto');
+            if (savedPhoto) {
+                document.getElementById('previewImage').src = savedPhoto;
+                document.getElementById('previewImage').style.display = 'block';
+            }
+            
+            document.getElementById('adminPanel').classList.add('show');
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('adminPanel').classList.remove('show');
+        }
+
+        function saveSettings() {
+            settings.name = document.getElementById('editName').value || settings.name;
+            settings.subtitle = document.getElementById('editSubtitle').value || settings.subtitle;
+            settings.about = document.getElementById('editAbout').value || settings.about;
+            settings.rank = document.getElementById('rankSelect').value;
+            settings.quoteText = document.getElementById('editQuoteText').value || settings.quoteText;
+            settings.quoteAuthor = document.getElementById('editQuoteAuthor').value || settings.quoteAuthor;
+            
+            social.instagram = document.getElementById('editInstagram').value || '#';
+            social.telegram = document.getElementById('editTelegram').value || '#';
+            social.whatsapp = document.getElementById('editWhatsapp').value || '#';
+            
+            // FOTOĞRAFI KAYDET - ÖNEMLİ KISIM!
+            const previewImage = document.getElementById('previewImage');
+            if (previewImage.src && previewImage.style.display !== 'none' && previewImage.src !== '') {
+                localStorage.setItem('profilePhoto', previewImage.src);
+            }
+            
+            updateUI();
+            alert('✅ Ayarlar kaydedildi!');
+            closeAdminPanel();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                modal.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
